@@ -26,5 +26,12 @@ class Booking:
         self.payment_status = payment_status
         self.payment_id = payment_id
 
-    def check_status(self, booking: 'Booking') -> str:
-        return booking.status
+    def check_booking_object(self, booking: "Booking") -> bool:
+        class_vars = vars(self)
+        booking_vars = vars(booking)
+
+        for var_name, var_value in class_vars.items():
+            if var_name in booking_vars:
+                if var_value != booking_vars[var_name]:
+                    return False
+        return True
