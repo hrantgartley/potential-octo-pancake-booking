@@ -1,9 +1,27 @@
 import random
 import string
-import stringprep
 
 
 class Booking:
+    """
+    Represents a booking object.
+    Attributes:
+        booking_id (str): The unique ID of the booking.
+        status (str): The status of the booking.
+        payment_status (str): The payment status of the booking.
+        payment_id (int): The ID of the payment associated with the booking.
+    Methods:
+        __init__(): Initializes a new instance of the Booking class.
+        __str__(): Returns a string representation of the booking object.
+        get_booking_id(): Returns the booking ID.
+        get_status(): Returns the status of the booking.
+        get_payment_status(): Returns the payment status of the booking.
+        get_payment_id(): Returns the payment ID associated with the booking.
+        generate_booking_id(): Generates a unique booking ID.
+        create_booking(status, payment_status, payment_id): Creates a new booking with the given status, payment status, and payment ID.
+        check_booking_object(booking): Checks if the given booking object is equal to the current booking object.
+    """
+
     def __init__(self) -> None:
         self.booking_id = self.generate_booking_id()
         self.status = "pending"
@@ -17,6 +35,18 @@ class Booking:
             f"Payment Status: {self.payment_status}\n"
             f"Payment ID: {self.payment_id}\n"
         )
+
+    def get_booking_id(self) -> str:
+        return self.booking_id
+
+    def get_status(self) -> str:
+        return self.status
+
+    def get_payment_status(self) -> str:
+        return self.payment_status
+
+    def get_payment_id(self) -> int:
+        return self.payment_id
 
     def generate_booking_id(self) -> str:
         return "".join(random.choices(string.ascii_uppercase + string.digits, k=6))
