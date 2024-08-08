@@ -1,2 +1,12 @@
+[project]
+name = "potential-octo-pancake-booking"
+authors = [{ name = "grant", email = "granthartley8@gmail.com" }]
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["requests"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
